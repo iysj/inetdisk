@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+			http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+			">
+	
+	<context:property-placeholder
+		ignore-resource-not-found="false" location="classpath:web.properties" />
+	<context:component-scan base-package="com.xiaoqee.hadoop.action" ></context:component-scan>
+	
+    <mvc:interceptors>
+    	<mvc:interceptor>
+    		<mvc:mapping path="/user/*"/>
+    		<bean class="com.xiaoqee.hadoop.interceptor.SecurityInterceptor"/>
+    	</mvc:interceptor>
+    </mvc:interceptors>	
+
+	<!-- 静态资源过滤 -->
+	<mvc:resources mapping="/static/**" location="/static/" />
+	<!-- 静态页面,页面静态化就放在这个目录下 -->
+	<mvc:resources mapping="/**/*.html" location="/static/" />
+	
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
+	<!-- StringHttpMessageConverter 从请求和响应读取/编写字符串。默认情况下，它支持媒体类型 text/* 并使用文本/无格式内容类型编写。 
+		MarshallingHttpMessageConverter 使用 Spring 的 marshaller/un-marshaller 读取/编写 
+		XML 数据。它转换媒体类型为 application/xml 的数据。 MappingJacksonHttpMessageConverter 使用 
+		Jackson 的 ObjectMapper 读取/编写 JSON 数据。它转换媒体类型为 application/json 的数据。 
+		http://www.cnblogs.com/zhaoyang/archive/2012/01/07/2315436.html 
+		-->
+	
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<ref bean="stringHttpMessageConverter" />
+				<ref bean="jsonHttpMessageConverter" />
+				<ref bean="marshallingHttpMessageConverter" />
+			</list>
+		</property>
+	</bean>
+	<bean id="stringHttpMessageConverter"
+		class="org.springframework.http.converter.StringHttpMessageConverter" >
+		<property name = "supportedMediaTypes">
+			 <list>
+				 <value>text/plain;charset=UTF-8</value>
+				 <value>application/json;charset=UTF-8</value>
+			 </list>
+   		</property>
+	</bean>	
+	
+		
+		
+	<bean id="jsonHttpMessageConverter"
+		class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+		<property name="supportedMediaTypes">
+			<list>
+				<value>text/html;charset=UTF-8</value>
+				<value>application/json;charset=UTF-8</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="marshallingHttpMessageConverter"
+		class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter">
+		<property name="marshaller" ref="castorMarshaller" />
+		<property name="unmarshaller" ref="castorMarshaller" />
+	</bean>
+	<bean id="castorMarshaller" class="org.springframework.oxm.castor.CastorMarshaller" />
+	<!-- 支持json <bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"> 
+		<property name="supportedMediaTypes"> <list> <value>text/html;charset=UTF-8</value> 
+		</list> </property> </bean> -->
+	<!-- 默认首页，测试 <mvc:view-controller path="/" view-name="/index" /> -->
+
+	<bean id="velocityConfig"
+		class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+		<property name="velocityProperties">
+			<props>
+				<prop key="input.encoding">utf-8</prop>
+				<prop key="output.encoding">utf-8</prop>
+				<prop key="resource.loader">file</prop>
+				<prop key="file.resource.loader.path">/WEB-INF/velocity</prop>
+				<prop key="file.resource.loader.class">org.apache.velocity.tools.view.servlet.WebappLoader</prop>
+				<prop key="file.resource.loader.cache">false</prop>
+				<prop key="velocimacro.library">macro.vm</prop>
+				<prop key="file.resource.loader.modificationCheckInterval">1</prop>
+				
+			</props>
+		</property>
+	</bean>
+	<bean
+		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<property name="mediaTypes">
+
+        <map>
+            <entry key="html" value="text/html" />
+            <entry key="json" value="application/json" />
+            <entry key="xml" value="application/xml" />
+        </map>
+    </property>
+		<property name="viewResolvers">
+			<list>
+				<bean class="org.springframework.web.servlet.view.BeanNameViewResolver" />
+				<!-- jsp视图解析器 -->
+				<bean id="jspViewResolver"
+					class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+					<property name="viewClass"
+						value="org.springframework.web.servlet.view.JstlView" />
+					<property name="prefix" value="/WEB-INF/jsp/" />
+					<property name="suffix" value=".jsp" />
+					<property name="contentType" value="text/html;charset=UTF-8" />
+					<property name="order" value="2"></property>
+				</bean>
+				<bean id="velocityViewResolver"
+					class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
+					<property name="cache" value="false" />
+					<property name="prefix" value="" />
+					<property name="suffix" value=".vm" />
+					<property name="contentType" value="text/html;charset=UTF-8" />
+					<property name="exposeSessionAttributes" value="true" />
+					<!-- velocity-toolbox.xml 配置文件 -->
+					<property name="toolboxConfigLocation" value="/WEB-INF/velocity/velocity-toolbox.xml" />
+					
+					<property name="layoutUrl" value="layout/default.vm" />
+			        <property name="layoutKey" value="layout"/>  
+			        <property name="screenContentKey" value="screen_content"/>
+			         <property name="allowRequestOverride" value="true"/>
+			         <!-- property name="exposeSessionAttributes" value="true"/> -->
+			         <property name="requestContextAttribute" value="rc"/>
+			         <property name="exposeRequestAttributes" value="true"/>
+			         
+					<property name="exposeSpringMacroHelpers" value="true" />
+					<property name="allowSessionOverride" value="true"/>
+					
+			         <property name="order" value="1"></property>
+				</bean>
+			</list>
+		</property>
+		<property name="defaultViews">
+			<list>
+				<bean
+					class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />
+			</list>
+		</property>
+		<property name="defaultContentType" value="application/json" />
+	</bean>
+	<!-- 文件上传 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
+		p:defaultEncoding="utf-8">
+		<!-- 设置上传文件大小的参数 10M ，但实际上传方法中有自己的控制 -->
+		<property name="maxUploadSize" value="10000000" />
+	</bean>
+	<mvc:annotation-driven/>
+	
+</beans>

@@ -1,0 +1,28 @@
+#set($layout ="layout/layout_easyui.vm" )
+#set($title="下载目录设置")
+
+    <div class="easyui-panel" title="下载目录设置" style="width:600px">
+        <div style="padding:10px 60px 20px 60px">
+        <form id="ff" method="post" action="/user/setdlpath">
+            <table cellpadding="5">
+                <tr>
+                    <td>下载位置:</td>
+                    <td><input class="easyui-textbox" type="text" name="path" value="$path" data-options="required:true"></input></td>
+                </tr>
+                
+            </table>
+        </form>
+        <div style="text-align:center;padding:5px">
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()">Submit</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()">Clear</a>
+        </div>
+        </div>
+    </div>
+    <script>
+        function submitForm(){
+            $('#ff').form('submit');
+        }
+        function clearForm(){
+            $('#ff').form('clear');
+        }
+    </script>

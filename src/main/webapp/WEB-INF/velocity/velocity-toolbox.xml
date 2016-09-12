@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+=============================================================
+  @(#) toolbox.xml
+     
+  Copyright (c) 2005, HOBOKEN Project, All Rights Reserved.
+=============================================================
+-->
+
+<toolbox>
+	 
+    <!-- [ DateTool ]
+         @see http://www.jajakarta.org/velocity/tools/velocity-tools-1.1/docs-ja/generic/DateTool.html  (ja)
+        @see http://velocity.apache.org/tools/devel/javadoc/org/apache/velocity/tools/generic/DateTool.html  (en)
+        @since VelocityTools 1.0
+    -->
+    <tool>
+        <key>date</key>
+        <scope>application</scope>
+        <class>org.apache.velocity.tools.generic.DateTool</class>
+    </tool>
+    <tool>
+        <key>stringUtils</key>
+        <scope>application</scope>
+        <class>org.apache.commons.lang3.StringUtils</class>
+    </tool>
+    <tool>
+		<key>collectionUtils</key>
+		<scope>application</scope>
+		<class>org.apache.commons.collections.CollectionUtils</class>
+	</tool>
+ <!-- 
+ ###########################################################
+ -->   
+    <!-- [ MathTool ]
+        @see http://www.jajakarta.org/velocity/tools/velocity-tools-1.1/docs-ja/generic/MathTool.html  (ja)
+        @see http://velocity.apache.org/tools/devel/generic/MathTool.html  (en)
+        @since VelocityTools 1.0
+    -->
+    <tool>
+        <key>math</key>
+        <scope>application</scope>
+        <class>org.apache.velocity.tools.generic.MathTool</class>
+    </tool>
+    
+    <!-- [ NumberTool ]
+        @see http://velocity.apache.org/tools/devel/javadoc/org/apache/velocity/tools/generic/NumberTool.html  (en)
+        @since VelocityTools 1.2
+    -->
+    <tool>
+        <key>number</key>
+        <scope>application</scope>
+        <class>org.apache.velocity.tools.generic.NumberTool</class>
+        <parameter name="format" value="#0.000"/>
+    </tool>
+    
+    <!-- [ RenderTool ]
+        @see http://velocity.apache.org/tools/devel/generic/RenderTool.html  (en)
+        @since VelocityTools 1.0
+    
+    <tool>
+        <key>render</key>
+        <scope>application</scope>
+        <class>org.apache.velocity.tools.generic.RenderTool</class>
+    </tool>
+    -->
+    
+    <!-- [ EscapeTool ]
+        @see http://velocity.apache.org/tools/devel/generic/EscapeTool.html  (en)
+        @since VelocityTools 1.2
+    -->
+    <tool>
+        <key>esc</key>
+        <scope>application</scope>
+        <class>org.apache.velocity.tools.generic.EscapeTool</class>
+    </tool>
+    
+    <!-- [ ResourceTool ]
+               @see http://velocity.apache.org/tools/devel/javadoc/org/apache/velocity/tools/generic/ResourceTool.html  (en)
+        @since Velocity 1.3
+    <tool>
+        <key>text</key>
+        <class>org.apache.velocity.tools.generic.ResourceTool</class>
+        <parameter name="bundles" value="resources,prj.hoboken.patrasche.resources.PatrascheResources" />
+        <parameter name="locale" value="ja_JP" />
+    </tool>
+    -->
+    
+    <!-- [ AlternatorTool ]
+
+        @see http://velocity.apache.org/tools/devel/javadoc/org/apache/velocity/tools/generic/AlternatorTool.html  (en)
+        @since VelocityTools 1.2
+    -->
+    <tool>
+        <key>alternator</key>
+        <scope>application</scope>
+        <class>org.apache.velocity.tools.generic.AlternatorTool</class>
+    </tool>
+    
+    <!-- [ ValueParser ]
+
+        @see http://velocity.apache.org/tools/devel/javadoc/org/apache/velocity/tools/generic/ValueParser.html  (en)
+        @since VelocityTools 1.2
+    -->
+    
+    <!-- [ IteratorTool ]
+        @see http://velocity.apache.org/tools/devel/javadoc/org/apache/velocity/tools/generic/IteratorTool.html  (en)
+        @since VelocityTools 1.0
+    -->
+    <tool>
+        <key>mill</key>
+        <scope>request</scope>
+        <class>org.apache.velocity.tools.generic.IteratorTool</class>
+    </tool>
+ <!-- 
+ 	[ web Data ]
+  -->       
+    <!--<data type="string">-->
+        <!--<scope>request</scope>-->
+        <!--<key>webRoot</key><value>http://localhost:8080</value>-->
+    <!--</data>-->
+    <data type="string">
+        <scope>request</scope>
+        <key>app_name</key><value>Patrasche</value>
+    </data>
+    
+
+    <data type="string">
+        <scope>request</scope>
+        <key>multiPart</key><value>enctype='multipart/form-data'</value>
+    </data>
+
+</toolbox>

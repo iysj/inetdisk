@@ -1,0 +1,16 @@
+#set($user=$session.getAttribute("current_login_user"))
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie ie6"> <![endif]-->
+<!--[if IE 7 ]> <html class="ie ie7"> <![endif]-->
+<!--[if IE 8 ]> <html class="ie ie8"> <![endif]-->
+<!--[if IE 9 ]> <html class="ie ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html> <!--<![endif]-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>netdisk</title>
+<link href="${rc.contextPath}/static/css/main.css" rel="stylesheet" />
+</head>
+<body>
+$screen_content
+</body>
+</html>

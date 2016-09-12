@@ -1,0 +1,38 @@
+#set($layout ="layout/layout_easyui.vm" )
+#set($title="登录")
+ 
+<form id="loginForm" action="/login" method="post">
+
+    <div style="margin:20px auto;width:400px;">
+    
+    <div class="easyui-panel panel-center" title="Login to system" style="width:400px;padding:30px 70px 20px 70px;margin:auto;">
+        <div style="margin-bottom:10px">
+            <input class="easyui-textbox" style="width:100%;height:40px;padding:12px" name="username" data-options="prompt:'username',iconCls:'icon-man',iconWidth:38">
+        </div>
+        <div style="margin-bottom:20px">
+            <input class="easyui-textbox" type="password" style="width:100%;height:40px;padding:12px" name="password" data-options="prompt:'password',iconCls:'icon-lock',iconWidth:38">
+        </div>
+    	<!--
+        <div style="margin-bottom:20px">
+            <input type="checkbox" checked="checked">
+            <span>Remember me</span>
+        </div>
+    	-->
+        <div>
+            <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-ok'" style="padding:5px 0px;width:100%;">
+                <span style="font-size:14px;">Login</span>
+            </a>
+        </div>
+    </div>
+    </div>
+</form>
+	
+<script>
+	$(function(){
+		
+		$(".easyui-linkbutton").click(function(){
+			$("#loginForm").submit();
+		});
+		
+	});
+</script>

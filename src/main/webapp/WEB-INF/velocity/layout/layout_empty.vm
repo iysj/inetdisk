@@ -1,0 +1,3 @@
+<script type="text/javascript" src="${rc.contextPath}/static/js/jquery-1.7.1.min.js"></script>
+
+$screen_content
