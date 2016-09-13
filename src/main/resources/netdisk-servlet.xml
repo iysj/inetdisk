@@ -12,13 +12,13 @@
 	
 	<context:property-placeholder
 		ignore-resource-not-found="false" location="classpath:web.properties" />
-	<context:component-scan base-package="com.xiaoqee.hadoop.action" ></context:component-scan>
+	<context:component-scan base-package="com.kingsj.hadoop.action" ></context:component-scan>
 	
 	
     <mvc:interceptors>
     	<mvc:interceptor>
     		<mvc:mapping path="/user/*"/>
-    		<bean class="com.xiaoqee.hadoop.interceptor.SecurityInterceptor"/>
+    		<bean class="com.kingsj.hadoop.interceptor.SecurityInterceptor"/>
     	</mvc:interceptor>
     </mvc:interceptors>	
 	

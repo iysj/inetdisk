@@ -28,53 +28,6 @@ springmvc + mybatis + mysql + velocity + easyui
 
 HDFS文件系统，根据自己文件系统修改resource/hdfs.properties文件中hdfsURI值
 
-	hdfsURI=hdfs://hadoop-zengjr.xiaoqee.com:8020
+	hdfsURI=hdfs://king:8080
 
-默认登录用户名密码为zengjr/zengjr
-
-上传文件大小限制
-修改配置文件resources/netdisk-servlet.xml中multipartResolver
-
-	<bean id="multipartResolver"
-			class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
-			p:defaultEncoding="utf-8">
-			<!-- 设置上传文件大小的参数 10M -->
-			<property name="maxUploadSize" value="10000000" />
-		</bean>
-
-##功能截图
-
- * 登录
-  
-	![](/doc/pic/login.jpg)
-
- * 主界面
-  
-	![](/doc/pic/main.jpg)
-
- * 网盘菜单
-  
-	![](/doc/pic/menu.jpg)
-
- * 上传
-  
-	![](/doc/pic/upload.jpg)
-
- * 下载
-  
-	![](/doc/pic/download.jpg)
-
- * 新建文件夹
-  
-	![](/doc/pic/createdir.jpg)
-
- * 下载路径设置
-  
-	![](/doc/pic/set.jpg)
- * 修改密码
-  
-	![](/doc/pic/pwd.jpg)
-
- * 退出
-  
-	![](/doc/pic/logout.jpg)
+默认登录用户名密码为kingsj.yuan/123456

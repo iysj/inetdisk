@@ -180,11 +180,11 @@
     <div region="north" split="true" border="false" style="overflow: hidden; height: 30px;
         background: url(${rc.contextPath}/static/images/layout-browser-hd-bg.gif) #7f99be repeat-x center 50%;
         line-height: 20px;color: #fff; font-family: Verdana, 微软雅黑,黑体">
-        <span style="float:right; padding-right:20px;" class="head">欢迎 zengjr <a href="#" id="editpass">修改密码</a> <a href="#" id="loginOut">安全退出</a></span>
-        <span style="padding-left:10px; font-size: 16px; "><img src="${rc.contextPath}/static/images/blocks.gif" width="20" height="20" align="absmiddle" /> HADOOP 学习 网盘功能演示</span>
+        <span style="float:right; padding-right:20px;" class="head">欢迎 kingsj <a href="#" id="editpass">修改密码</a> <a href="#" id="loginOut">安全退出</a></span>
+        <span style="padding-left:10px; font-size: 16px; "><img src="${rc.contextPath}/static/images/blocks.gif" width="20" height="20" align="absmiddle" /> HADOOP DEMO-网盘功能演示</span>
     </div>
     <div region="south" split="true" style="height: 30px; background: #D2E0F2; ">
-        <div class="footer">By Zengjr</div>
+        <div class="footer">By KINGSJ</div>
     </div>
     <div region="west" split="true"  title="导航菜单" style="width:180px;" id="west">
 			<div id="nav">
@@ -196,8 +196,6 @@
     <div id="mainPanle" region="center" style="background: #eee; overflow-y:hidden">
         <div id="tabs" class="easyui-tabs"  fit="true" border="false" >
 			<div title="欢迎使用" style="padding:20px;overflow:hidden; color:red; " >
-				<h1 style="font-size:24px;">本程序由zengjr开发</h1>
-				<h1 style="font-size:24px;">功能在完善中...</h1>
 				<h1 style="font-size:24px;">修改hdfs.properties,设置你的hdfs主机与端口</h1>
 				<h1 style="font-size:24px;"></h1>
 			</div>

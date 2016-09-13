@@ -11,7 +11,7 @@
 
 
 
-	<context:component-scan base-package="com.xiaoqee.hadoop.service">
+	<context:component-scan base-package="com.kingsj.hadoop.service">
 		<context:include-filter type="annotation"
 			expression="org.springframework.stereotype.Service" />
 
@@ -52,13 +52,13 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="configLocation" value="classpath:SqlMapConfig.xml" />
 		<property name="mapperLocations"
-			value="classpath:com/xiaoqee/hadoop/mapper/conf/**/*.xml" />
+			value="classpath:com/kingsj/hadoop/mapper/conf/**/*.xml" />
 	</bean>
 	
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
-		<property name="basePackage" value="com.xiaoqee.hadoop.mapper" />
-		<property name="markerInterface" value="com.xiaoqee.hadoop.mapper.SqlMapper" />
+		<property name="basePackage" value="com.kingsj.hadoop.mapper" />
+		<property name="markerInterface" value="com.kingsj.hadoop.mapper.SqlMapper" />
 	</bean>
 	<!--
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">

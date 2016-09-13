@@ -17,7 +17,7 @@
     <mvc:interceptors>
     	<mvc:interceptor>
     		<mvc:mapping path="/user/*"/>
-    		<bean class="com.xiaoqee.hadoop.interceptor.SecurityInterceptor"/>
+    		<bean class="com.kingsj.hadoop.interceptor.SecurityInterceptor"/>
     	</mvc:interceptor>
     </mvc:interceptors>	
 

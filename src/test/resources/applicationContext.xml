@@ -58,7 +58,7 @@
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 		<property name="basePackage" value="com.xiaoqee.hadoop.mapper" />
-		<property name="markerInterface" value="com.xiaoqee.hadoop.mapper.SqlMapper" />
+		<property name="markerInterface" value="com.kingsj.hadoop.mapper.SqlMapper" />
 	</bean>
 	<!--
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
