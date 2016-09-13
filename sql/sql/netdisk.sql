@@ -1,22 +1,22 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost
-Source Server Version : 50527
+Source Server         : localhost_3306
+Source Server Version : 50171
 Source Host           : localhost:3306
 Source Database       : netdisk
 
 Target Server Type    : MYSQL
-Target Server Version : 50527
+Target Server Version : 50171
 File Encoding         : 65001
 
-Date: 2015-01-08 19:23:19
+Date: 2016-09-13 10:05:55
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for `hfile`
+-- Table structure for hfile
 -- ----------------------------
 DROP TABLE IF EXISTS `hfile`;
 CREATE TABLE `hfile` (
@@ -36,12 +36,14 @@ CREATE TABLE `hfile` (
 -- Records of hfile
 -- ----------------------------
 INSERT INTO `hfile` VALUES ('3925230a-39d6-48d5-ab8c-5d93a449ab03', '4f17d693-8ce9-470b-92e5-c7520417dd27', '/tt/940bf6f8-7598-433e-9234-5b987789521c_artifacts.xml', 'artifacts.xml', '09ed40a638246cebe2bf99e3ae8a303d', '125178', '1', '2015-01-08 15:12:11');
+INSERT INTO `hfile` VALUES ('4edbfb6f-f967-473f-ab42-45678a740162', '0', '/t1', 't1', '-1', '-1', '0', '2016-09-12 10:43:06');
 INSERT INTO `hfile` VALUES ('4f17d693-8ce9-470b-92e5-c7520417dd27', '0', '/tt', 'tt', '-1', '-1', '0', '2015-01-08 15:11:29');
 INSERT INTO `hfile` VALUES ('9eb92ee4-891c-4056-8a45-c61769ef3b31', 'a3a1d874-425f-4104-a410-f20224e39d8d', '/tt/yy/b07d5c52-700d-40eb-8303-03a153a48e6a_eclipse.ini', 'eclipse.ini', '9f8148eb2e903e8ad02eb23c8c052e7e', '477', '1', '2015-01-08 15:43:32');
+INSERT INTO `hfile` VALUES ('a38db1ad-9361-44f0-96ce-f3275069eb66', '4edbfb6f-f967-473f-ab42-45678a740162', '/t1/37d2d7dd-7b5d-4f1e-9e06-3d08297e26d7_Chrysanthemum.jpg', 'Chrysanthemum.jpg', '076e3caed758a1c18c91a0e9cae3368f', '879394', '1', '2016-09-12 11:17:53');
 INSERT INTO `hfile` VALUES ('a3a1d874-425f-4104-a410-f20224e39d8d', '4f17d693-8ce9-470b-92e5-c7520417dd27', '/tt/yy', 'yy', '-1', '-1', '0', '2015-01-08 15:13:03');
 
 -- ----------------------------
--- Table structure for `user`
+-- Table structure for user
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
@@ -60,10 +62,10 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1a0792aa-3080-426a-967d-24ad2ed9f2c6', 'zengjr', 'u7/hBf7tye3Ub+Xf1LKIQzplarJNAGiYE31E7uYzbtQ=', '2014-12-30 17:28:27', null, '1a0792aa-3080-426a-967d-24ad2ed9f2c6', '1', null);
+INSERT INTO `user` VALUES ('1a0792aa-3080-426a-967d-24ad2ed9f2c6', 'kingsj', '5vUJnPjr/KaHxx/B9pOGS+CwFmaPNzxCpH8VLznO4NQ=', '2014-12-30 17:28:27', null, '1a0792aa-3080-426a-967d-24ad2ed9f2c6', '1', null);
 
 -- ----------------------------
--- Table structure for `user_file`
+-- Table structure for user_file
 -- ----------------------------
 DROP TABLE IF EXISTS `user_file`;
 CREATE TABLE `user_file` (
@@ -78,12 +80,14 @@ CREATE TABLE `user_file` (
 -- Records of user_file
 -- ----------------------------
 INSERT INTO `user_file` VALUES ('0dbcfea8-a9db-4e60-9d82-6184c64b6cc8', '1a0792aa-3080-426a-967d-24ad2ed9f2c6', '9eb92ee4-891c-4056-8a45-c61769ef3b31', '2015-01-08 15:43:32');
+INSERT INTO `user_file` VALUES ('54f2dd99-33b0-4c56-b977-ea40707c8de2', '1a0792aa-3080-426a-967d-24ad2ed9f2c6', '4edbfb6f-f967-473f-ab42-45678a740162', '2016-09-12 10:43:06');
 INSERT INTO `user_file` VALUES ('72b3ebe0-e3b2-457b-ad10-41bd8cf7b9c2', '1a0792aa-3080-426a-967d-24ad2ed9f2c6', '4f17d693-8ce9-470b-92e5-c7520417dd27', '2015-01-08 15:11:29');
 INSERT INTO `user_file` VALUES ('96b01443-cc66-430c-83cf-991ea8c2014c', '1a0792aa-3080-426a-967d-24ad2ed9f2c6', '3925230a-39d6-48d5-ab8c-5d93a449ab03', '2015-01-08 15:12:11');
 INSERT INTO `user_file` VALUES ('ab9fb455-7d34-4bd2-891b-65b08b022a77', '1a0792aa-3080-426a-967d-24ad2ed9f2c6', 'a3a1d874-425f-4104-a410-f20224e39d8d', '2015-01-08 15:13:03');
+INSERT INTO `user_file` VALUES ('dfbcc7aa-d486-4fec-99ed-56a06019f7e7', '1a0792aa-3080-426a-967d-24ad2ed9f2c6', 'a38db1ad-9361-44f0-96ce-f3275069eb66', '2016-09-12 11:17:53');
 
 -- ----------------------------
--- Table structure for `user_param`
+-- Table structure for user_param
 -- ----------------------------
 DROP TABLE IF EXISTS `user_param`;
 CREATE TABLE `user_param` (
